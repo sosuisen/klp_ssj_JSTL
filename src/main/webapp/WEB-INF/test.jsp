@@ -23,5 +23,6 @@ ${map.name}, ${array[0]}, ${array[1]}<br>
 このプロパティは${requestScope.notExist}ない。<br>
 \${escape}<br>
 ${map['name']}<br>
+JavaBeans ${member.name}
 </body>
 </html>
