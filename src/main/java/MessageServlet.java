@@ -27,7 +27,7 @@ public class MessageServlet extends HttpServlet {
 
 		String path = request.getServletPath();
 		if (path.equals("/clear")) {
-			ArrayList<MessageBean> list = (ArrayList<MessageBean>) session.getAttribute("history");
+			var list = (ArrayList<MessageBean>) session.getAttribute("history");
 			list.clear();
 		}
 
@@ -40,15 +40,13 @@ public class MessageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
-		String message = request.getParameter("message");
 
-		MessageBean mesBean = new MessageBean();
-		mesBean.setName(name);
-		mesBean.setMessage(message);
-		
+		var mesBean = new MessageBean();
+		mesBean.setName(request.getParameter("name"));
+		mesBean.setMessage(request.getParameter("message"));
+
 		HttpSession session = request.getSession();
-		ArrayList<MessageBean> list = (ArrayList<MessageBean>) session.getAttribute("history");
+		var list = (ArrayList<MessageBean>) session.getAttribute("history");
 		list.add(mesBean);
 
 		request.getRequestDispatcher(

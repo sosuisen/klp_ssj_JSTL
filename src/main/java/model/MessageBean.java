@@ -1,7 +1,9 @@
 package model;
 
-@lombok.Data
+import lombok.Data;
+
+@Data
 public class MessageBean {
-	private String message;
 	private String name;
+	private String message;
 }
